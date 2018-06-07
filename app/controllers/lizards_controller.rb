@@ -1,4 +1,6 @@
 class LizardsController < ApplicationController
+  before_action :find_lizard, except: [:new, :index, :create]
+
   def new
     @lizard = Lizard.new
   end
@@ -18,8 +20,6 @@ class LizardsController < ApplicationController
   end
 
   def update
-    @lizard = Lizard.find(params[:id])
-
     if @lizard.update_attributes(lizard_params)
       redirect_to @lizard
     else
@@ -28,16 +28,16 @@ class LizardsController < ApplicationController
   end
 
   def destroy
-    Lizard.find(params[:id]).destroy
+    @lizard.destroy
     redirect_to '/'
   end
 
   def show
-    @lizard = Lizard.find(params[:id])
+
   end
 
   def edit
-    @lizard = Lizard.find(params[:id])
+
   end
 
   private
@@ -47,5 +47,7 @@ class LizardsController < ApplicationController
                                      :armor)
     end
 
-
+    def find_lizard
+      @lizard = Lizard.find(params[:id])
+    end 
 end

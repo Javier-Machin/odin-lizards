@@ -7,5 +7,8 @@
   <br>
   <%= lizard.armor %>
   <br>
+  <%= link_to "delete", lizard_path(lizard), method: :delete, 
+               data: {confirm: "Really want to delete the lizard?"} %>
+  <br>
   <br>
 <% end %>

@@ -2,3 +2,5 @@
 <%= @lizard.age %><br>
 <%= @lizard.level %><br>
 <%= @lizard.armor %>
+<%= link_to "delete", lizard_path(@lizard), method: :delete, 
+             data: {confirm: "Really want to delete the lizard?"} %>
