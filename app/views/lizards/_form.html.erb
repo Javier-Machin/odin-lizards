@@ -1,0 +1,12 @@
+<%= form_for(@lizard) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+  <%= f.label :level %>
+  <%= f.text_field :level %>
+  <%= f.label :armor %>
+  <%= f.text_field :armor %>
+
+  <%= f.submit "CREATE"%>
+<% end %>
