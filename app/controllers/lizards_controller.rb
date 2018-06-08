@@ -13,6 +13,7 @@ class LizardsController < ApplicationController
     @lizard = Lizard.new(lizard_params)
 
     if @lizard.save
+      flash[:notice] = "Lizard successfully created"
       redirect_to @lizard
     else
       render 'new'
@@ -21,6 +22,7 @@ class LizardsController < ApplicationController
 
   def update
     if @lizard.update_attributes(lizard_params)
+      flash[:notice] = "Lizard successfully updated"
       redirect_to @lizard
     else
       render 'edit'
@@ -28,16 +30,16 @@ class LizardsController < ApplicationController
   end
 
   def destroy
-    @lizard.destroy
-    redirect_to '/'
+    if @lizard.destroy
+      flash[:notice] = "Lizard destroyed"
+      redirect_to '/'
+    end
   end
 
-  def show
-    
+  def show   
   end
 
   def edit
-
   end
 
   private
