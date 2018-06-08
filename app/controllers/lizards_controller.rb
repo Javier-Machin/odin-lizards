@@ -6,7 +6,11 @@ class LizardsController < ApplicationController
   end
 
   def index
-    @lizards = Lizard.all 
+    @lizards = Lizard.all
+    respond_to do |format|
+      format.html 
+      format.json { render :json => @lizards }
+    end 
   end
 
   def create
@@ -36,7 +40,11 @@ class LizardsController < ApplicationController
     end
   end
 
-  def show   
+  def show
+    respond_to do |format|
+      format.html 
+      format.json { render :json => @lizard }
+    end    
   end
 
   def edit
